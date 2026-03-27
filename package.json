@@ -1,0 +1,35 @@
+{
+  "name": "opencode-fastmode",
+  "version": "0.1.0",
+  "description": "Fast mode toggle for OpenCode GPT-5.4 requests",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "oc-fast": "./bin/oc-fast.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "opencode",
+    "openai",
+    "gpt-5.4",
+    "fastmode",
+    "plugin"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
