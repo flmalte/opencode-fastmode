@@ -1,11 +1,15 @@
 # opencode-fastmode
 
-Fast mode toggle for OpenCode `openai/gpt-5.4` requests.
+Workaround plugin for GPT-5.4 fast mode in OpenCode.
 
 This package avoids slash-command hacks. It uses:
 
 - an OpenCode plugin that applies `serviceTier: "priority"` in `chat.params`
 - a small CLI that updates the persisted fast mode state
+
+It is not first-class OpenCode fast mode support.
+It does not add `/fast`, prompt status UI, or model-level `controls` metadata inside OpenCode itself.
+It only applies the request option for supported model calls.
 
 Because the toggle happens outside the chat flow, it does not require a model reply and does not add transcript noise.
 
@@ -60,6 +64,13 @@ npm install -g opencode-fastmode
 - `openai/gpt-5.4`
 - all OpenCode agents that use `openai/gpt-5.4`
 - persisted state in `~/.config/opencode/fastmode.json`
+
+## What it does not support
+
+- `/fast` inside OpenCode
+- prompt status line indicators
+- OpenCode model `controls` metadata
+- upstream migration behavior or compatibility aliases
 
 ## State file
 
@@ -154,6 +165,8 @@ If the current model is `openai/gpt-5.4`, it sets:
 ```
 
 No reasoning or verbosity settings are modified.
+
+This mirrors the manual `options.serviceTier = "priority"` workaround people have discussed for OpenCode config overrides.
 
 ## Verify it is active
 
